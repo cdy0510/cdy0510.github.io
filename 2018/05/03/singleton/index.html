@@ -10,7 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="##Singleton pattern(싱글턴 패턴)소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를">
+        <meta name="description" content="Singleton pattern(싱글턴 패턴)소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리">
     
 
     <!--Author-->
@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="singleton"/>
+        <meta property="og:title" content="\[Java\] Singleton pattern(싱글턴 패턴)"/>
     
 
     <!--Open Graph Description-->
@@ -42,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>singleton - Da Young, Dev Young</title>
+    <title>\[Java\] Singleton pattern(싱글턴 패턴) - Da Young, Dev Young</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -152,7 +152,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>singleton</h1>
+                    <h1>\[Java\] Singleton pattern(싱글턴 패턴)</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -199,7 +199,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>##Singleton pattern(싱글턴 패턴)<br>소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다.<br>이와 같은 디자인 유형을 싱글턴 패턴이라고 한다. 주로 공통된 객체를 여러개 생성해서 사용하는 DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.</p>
+                <h2 id="Singleton-pattern-싱글턴-패턴"><a href="#Singleton-pattern-싱글턴-패턴" class="headerlink" title="Singleton pattern(싱글턴 패턴)"></a>Singleton pattern(싱글턴 패턴)</h2><p>소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다.<br>이와 같은 디자인 유형을 싱글턴 패턴이라고 한다. 주로 공통된 객체를 여러개 생성해서 사용하는 DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.<br>출처: <a href="https://ko.wikipedia.org/wiki/싱글턴_패턴" title="위키백과" target="_blank" rel="noopener">위키백과</a></p>
 <p>우선 아래와 같은 클래스 하나를 만들어보자<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class Wallet &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>그리고 이를 생성자를 통해 만들어보면<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Wallet myWallet1 = new Wallet();</span><br><span class="line">Wallet myWallet2 = new Wallet();</span><br><span class="line"></span><br><span class="line">System.out.println(myWallet1);</span><br><span class="line">System.out.println(myWallet2);</span><br></pre></td></tr></table></figure></p>
 <p>출력값은 어떻게 나올까?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wallet@60e53b93</span><br><span class="line">Wallet@5e2de80c</span><br></pre></td></tr></table></figure></p>
@@ -212,14 +212,12 @@
 <p>추가적으로 DCL(Double-checked locking)도 덧붙여 보자. 여기까지만 만들면 호출 시마다 동기화를 진행하므로, DCL기능을 이용해<br>객체가 생성되어 있지 않을 때만 동기화하여 성능저하를 완화해 보자!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Wallet &#123;</span><br><span class="line">    private volatile static Wallet wallet;</span><br><span class="line">    </span><br><span class="line">    private Wallet()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public static Wallet getWallet() &#123;</span><br><span class="line">        if (wallet == null) &#123;</span><br><span class="line">            synchronized (Wallet.class) &#123;</span><br><span class="line">                if (wallet == null) &#123;</span><br><span class="line">                    wallet = new Wallet();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return wallet;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>자 이제 완벽한 코드가 되었따!!!라고 생각하면 오산이다.<br>DCL또한 안티패턴(anti-pattern)의 하나다.</p>
 <p><em>안티패턴(anti-pattern): 실제 많이 사용되는 패턴이지만 비효율적이거나 비생산적인 패턴</em></p>
-<p>###싱글톤은 그래서 언제쓰여?</p>
-<ul>
+<h3 id="싱글톤은-그래서-언제쓰여"><a href="#싱글톤은-그래서-언제쓰여" class="headerlink" title="싱글톤은 그래서 언제쓰여?"></a>싱글톤은 그래서 언제쓰여?</h3><ul>
 <li>위키에 나와있듯이 DBCP처럼 공통된 객체를 여러개 생성해서 사용해야 하는 상황에서 사용된다.</li>
 <li>객체가 꼭 하나여야만 하는 상황에 사용된다.</li>
 <li>고정된 메모리 영역을 얻기 때문에 메모리 낭비를 방지할 수 있다. -&gt; 두번째부터 객체 로딩 시간이 줄어든다(개이득!)</li>
 </ul>
-<p>###단점도 있겠지</p>
-<ul>
+<h3 id="단점도-있겠지"><a href="#단점도-있겠지" class="headerlink" title="단점도 있겠지"></a>단점도 있겠지</h3><ul>
 <li>하나의 객체로 여기저기 쓰인다 == 결합도가 높아진다</li>
 <li>결합도가 높아지면 한 곳에서의 변경이 다른데에 영향을 끼쳐 나비효과가 될지도…</li>
 <li>멀티쓰레드환경에서 동기화처리를 해줘야함(할일++)</li>
