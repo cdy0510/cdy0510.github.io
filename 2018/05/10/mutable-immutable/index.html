@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="자바에서 String은 mutable이야? immutable이야?
+
+친구의 질문으로 시작된 게시글!
+
+mutable: 변할 수 있는; 잘 변하는immutable: 변경할 수 없는, 불변의
+
+사전적 정의로 보면 이런 뜻을 가지고 있다.그리고 나는 단순하게 이렇게 생각했다">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Dayoung Cho">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[JAVA] mutable, immutable"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="어제보다 더 나은 내가 되기"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>[JAVA] mutable, immutable - 어제보다 더 나은 내가 되기</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-118661263-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">어제보다 더 나은 내가 되기</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/cdy0510">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[JAVA] mutable, immutable</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-05-10
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/java/">#java</a> <a href="/tags/immutable/">#immutable</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/java/">java</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<p>자바에서 String은 mutable이야? immutable이야?</p>
+</blockquote>
+<p>친구의 질문으로 시작된 게시글!</p>
+<blockquote>
+<p>mutable: 변할 수 있는; 잘 변하는<br>immutable: 변경할 수 없는, 불변의</p>
+</blockquote>
+<p>사전적 정의로 보면 이런 뜻을 가지고 있다.<br>그리고 나는 단순하게 이렇게 생각했다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String userName = <span class="string">"홍길동"</span>;</span><br><span class="line">System.out.println(userName);</span><br><span class="line"></span><br><span class="line">userName = <span class="string">"둘리"</span>;</span><br><span class="line">System.out.println(userName);</span><br><span class="line"></span><br><span class="line"><span class="comment">// result</span></span><br><span class="line">홍길동</span><br><span class="line">둘리</span><br></pre></td></tr></table></figure>
+<p>값이 변하는데? 그럼 mutable아니야?<br>응 아니야.</p>
+<p>여기서 변할 수 있다, 없다의 기준은 우리가 눈으로 보는 String 값이 아니다.<br>우리가 위와 같은 행동을 했을 때는 참조하고 있던 값을 변경하는 것이 아니라 새로운 객체를 재할당 받는 것이다.<br><a href="/2018/05/09/java-string-concat-append/" title="[JAVA] 문자열 붙이는 방식의 차이(concat, +, StringBuilder)">[JAVA] 문자열 붙이는 방식의 차이(concat, +, StringBuilder)</a><br>마침 바로 이전글을 참고해보면 알 수 있는 정보가 있다!</p>
+<h3 id="immutable한-String-mutable한-StringBuilder"><a href="#immutable한-String-mutable한-StringBuilder" class="headerlink" title="immutable한 String, mutable한 StringBuilder"></a>immutable한 String, mutable한 StringBuilder</h3><p>String 문자열을 이어붙일 때 concat을 쓰면 새 주소값이 생기는 것을 확인했었다.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String result = <span class="string">"Hello"</span>;</span><br><span class="line">result = result.concat(<span class="string">"World"</span>);</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">주소</th>
+<th style="text-align:center">값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">Hello</td>
+</tr>
+<tr>
+<td style="text-align:center">2000</td>
+<td style="text-align:center">HelloWorld</td>
+</tr>
+</tbody>
+</table>
+<p>이유는 concat할때마다 <code>new String()</code>으로 새로운 객체를 만들어 할당받기 때문!</p>
+<p>굳이 문자열 붙이는 작업이 아니라 첫번째 언급했던 코드 대로 본다면<br>새로운 주소값을 가지고 있는 객체를 <code>userName</code>변수에 재할당 하는 것이다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">주소</th>
+<th style="text-align:center">값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">홍길동</td>
+</tr>
+<tr>
+<td style="text-align:center">2000</td>
+<td style="text-align:center">둘리</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>userName에 홍길동 값을 가지고 있는 1000번 주소를 할당</li>
+<li>값이 변경되면 1000번을 가리키고 있던 것을 새로운 객체가 있는 2000번으로 변경!</li>
+</ol>
+<p>반면에 StringBuilder는 append로 객체를 이어붙여 주소값이 변경되지 않는다.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">result.append(<span class="string">"Hello"</span>);</span><br><span class="line">result.append(<span class="string">"World"</span>);</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">주소</th>
+<th style="text-align:center">값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">Hello</td>
+</tr>
+<tr>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">HelloWorld</td>
+</tr>
+</tbody>
+</table>
+<h3 id="immutable한-클래스는-어떤게-있나요"><a href="#immutable한-클래스는-어떤게-있나요" class="headerlink" title="immutable한 클래스는 어떤게 있나요?"></a>immutable한 클래스는 어떤게 있나요?</h3><p>String, Boolean, Integer, Float, Long 등이 있습니다.</p>
+<h3 id="immutable한-클래스를-만들어-봅시다"><a href="#immutable한-클래스를-만들어-봅시다" class="headerlink" title="immutable한 클래스를 만들어 봅시다"></a>immutable한 클래스를 만들어 봅시다</h3><p>immutable은 값을 변경할 수 없는 클래스를 뜻한다. 즉 set 메소드가 없다!<br>또한 final 키워드를 사용해 변수 초기화 이후 바뀌지 않도록 막는다.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImmutableTest</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String userName;</span><br><span class="line">     </span><br><span class="line">    ImmutableTest(String userName)&#123;</span><br><span class="line">        <span class="keyword">this</span>.userName = userName;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.userName;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String userName = <span class="string">"홍길동"</span>;</span><br><span class="line">ImmutableTest immutableString = <span class="keyword">new</span> ImmutableTest(userName);</span><br><span class="line">userName = <span class="keyword">new</span> String(<span class="string">"둘리"</span>);</span><br><span class="line">System.out.println(immutableString);</span><br></pre></td></tr></table></figure>
+<p>결과 값은 immutable로 만들었던 userName(홍길동)은 변하지 않고, 새로운 객체 둘리가 userName에 할당된다.</p>
+<hr>
+<h5 id="참고사이트"><a href="#참고사이트" class="headerlink" title="참고사이트"></a>참고사이트</h5><p><a href="http://hashcode.co.kr/questions/727/자바에서-immutable이-뭔가요" target="_blank" rel="noopener">http://hashcode.co.kr/questions/727/자바에서-immutable이-뭔가요</a><br><a href="http://limkydev.tistory.com/68" target="_blank" rel="noopener">http://limkydev.tistory.com/68</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cdy0510" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:cdypro0510@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 Dayoung Cho<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

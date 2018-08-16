@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Singleton pattern(싱글턴 패턴)소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Dayoung Cho">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[JAVA] Singleton pattern(싱글턴 패턴)"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="어제보다 더 나은 내가 되기"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>[JAVA] Singleton pattern(싱글턴 패턴) - 어제보다 더 나은 내가 되기</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-118661263-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">어제보다 더 나은 내가 되기</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/cdy0510">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[JAVA] Singleton pattern(싱글턴 패턴)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-05-03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/java/">#java</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/java/">java</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Singleton-pattern-싱글턴-패턴"><a href="#Singleton-pattern-싱글턴-패턴" class="headerlink" title="Singleton pattern(싱글턴 패턴)"></a>Singleton pattern(싱글턴 패턴)</h2><p>소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다.<br>이와 같은 디자인 유형을 싱글턴 패턴이라고 한다. 주로 공통된 객체를 여러개 생성해서 사용하는 DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.<br>출처: <a href="https://ko.wikipedia.org/wiki/싱글턴_패턴" title="위키백과" target="_blank" rel="noopener">위키백과</a></p>
+<p>우선 아래와 같은 클래스 하나를 만들어보자<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>그리고 이를 생성자를 통해 만들어보면<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Wallet myWallet1 = <span class="keyword">new</span> Wallet();</span><br><span class="line">Wallet myWallet2 = <span class="keyword">new</span> Wallet();</span><br><span class="line"></span><br><span class="line">System.out.println(myWallet1);</span><br><span class="line">System.out.println(myWallet2);</span><br></pre></td></tr></table></figure><br>출력값은 어떻게 나올까?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wallet@60e53b93</span><br><span class="line">Wallet@5e2de80c</span><br></pre></td></tr></table></figure></p>
+<p>서로 다른 주소값을 가진 객체가 두개 생성되는 것이다.</p>
+<p>이를 이제 싱글톤 패턴으로 만들어보려고 한다! <del>내 지갑은 하나뿐이니까..</del></p>
+<h3 id="Lazy-Initialization-게으른-초기화"><a href="#Lazy-Initialization-게으른-초기화" class="headerlink" title="Lazy Initialization(게으른 초기화)"></a>Lazy Initialization(게으른 초기화)</h3><p>실제로 객체가 필요하기 전까지는 객체를 만들지 않았다가 필요할 때 생성하므로 메모리 낭비를 줄일 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Wallet wallet;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Wallet</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Wallet <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (wallet == <span class="keyword">null</span>) &#123;</span><br><span class="line">            wallet = <span class="keyword">new</span> Wallet();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> wallet;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>우선 생성자를 <code>private</code>으로 바꿔줬다. 이를 통해 new로 생성되는 것을 막는다.<br>그리고 객체가 null인지를 판별해 null일 경우에만 객체를 생성한다.</p>
+<p>자 이제 아까와 같이 두개의 지갑을 만들어보자<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Wallet myWallet1 = Wallet.getInstance();</span><br><span class="line">Wallet myWallet2 = Wallet.getInstance();</span><br><span class="line"></span><br><span class="line">System.out.println(myWallet1);</span><br><span class="line">System.out.println(myWallet2);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wallet@60e53b93</span><br><span class="line">Wallet@60e53b93</span><br></pre></td></tr></table></figure>
+<p>이제 지갑을 여러개 생성하더라도 모두 같은 주소값을 가리키고 있어 같은 값을 가지게 된다.<br>Multi-thread(멀티쓰레드)환경에서는 동기화 처리도 필요하다. 하나의 객체를 수정하고 있을 때 다른 곳에서 함께 수정하면 정확하지 않은 데이터가 입력될 수 있기 때문이다.<br>자바에서 이를 도와주는 키워드가 바로 <code>synchronized</code>이다. 이 키워드를 명시해주면 접근권한이 있더라도 이전 작업이 완전히 끝날 때까지 lock을 걸어 데이터를 보호해준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Wallet wallet;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Wallet</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Wallet <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (wallet == <span class="keyword">null</span>) &#123;</span><br><span class="line">            wallet = <span class="keyword">new</span> Wallet();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> wallet;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>하지만 이렇게 명시하면 호출 시마다 동기화를 진행하므로, 성능 저하가 있을 수 있다.<br>이를 예방하기 위한 방법을 살펴봐야겠다.</p>
+<h3 id="Double-checked-locking-DCL"><a href="#Double-checked-locking-DCL" class="headerlink" title="Double-checked locking(DCL)"></a>Double-checked locking(DCL)</h3><p>객체를 얻을 때마다 동기화하는 overhead를 줄이기 위한 방법으로 고안된 디자인 패턴이다.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Wallet wallet;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Wallet</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Wallet <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (wallet == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Wallet.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (wallet == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    wallet = <span class="keyword">new</span> Wallet();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> wallet;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>하지만 그닥 좋은 문법은 아니다. 이 패턴을 검색해보면 안티패턴(anti-pattern)의 하나로 언급되고있다.</p>
+<p><em>안티패턴(anti-pattern): 실제 많이 사용되는 패턴이지만 비효율적이거나 비생산적인 패턴</em></p>
+<p>Multi-thread(멀티쓰레드)환경에서 오작동할 가능성이 있기 때문이다</p>
+<ul>
+<li>동시에 객체를 초기화하면 객체가 두개가 생겨버리는 현상이 일어나거나</li>
+<li>생성자는 생성이 완료되기 전에 메모리 공간을 할당받게 되는데, 미처 생성이 완료 되기 전에 ‘어 이미 할당된 객체가 있네? 사용해야지!’라고 접근하게 되면 오류가 나게 된다.</li>
+</ul>
+<p>이 코드에 <code>volatile</code>이라는 키워드는 java버전 1.5이상 사용 시 추천한다. 또한 자세한 설명은 <a href="http://kwanseob.blogspot.kr/2012/08/java-volatile.html" target="_blank" rel="noopener">http://kwanseob.blogspot.kr/2012/08/java-volatile.html</a> 여기를 참고해보면 좋을 것 같다.</p>
+<p>어쨋든 DCL패턴은 이미 안티패턴으로 규정이 되었고, 다른 방법을 생각해봐야할 것 같다.</p>
+<h3 id="Enum"><a href="#Enum" class="headerlink" title="Enum"></a>Enum</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Wallet &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이렇게 열거형 객체인 enum을 사용하는 것인데 enum에 대해서는 따로 게시글로 다뤄봐야겠다.<br>enum은 전역변수로도 사용이 가능하고, enum타입의 <code>INSTANCE</code>가 생성될 때 멀티쓰레드로부터 안전하다.<br>하지만 추가된 메소드는 안전하지 않을 수 있다. 그래서 이 방법도 그닥 좋아보이지는 않는다.</p>
+<h3 id="initialization-on-demand-holder"><a href="#initialization-on-demand-holder" class="headerlink" title="initialization-on-demand holder"></a>initialization-on-demand holder</h3><p>늦은 초기화기법과 holder를 함께 쓰는 디자인 패턴이다. 모든 자바버전에서 안전하게 사용이 가능하고, 좋은 성능을 보여준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Wallet</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> Wallet INSTANCE = <span class="keyword">new</span> Wallet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Wallet <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> LazyHolder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>최초로 <code>getInstance()</code>를 실행 했을 때 클래스 로더에 의해 객체가 생성되고 <code>final</code>로 선언하여 값이 다시 할당되지 않도록 해준다.<br>이 방법이 가장 많이 사용되는 싱글톤 패턴이라고 한다.</p>
+<h3 id="싱글톤은-그래서-언제쓰여"><a href="#싱글톤은-그래서-언제쓰여" class="headerlink" title="싱글톤은 그래서 언제쓰여?"></a>싱글톤은 그래서 언제쓰여?</h3><ul>
+<li>위키에 나와있듯이 DBCP처럼 공통된 객체를 여러개 생성해서 사용해야 하는 상황에서 사용된다.</li>
+<li>객체가 꼭 하나여야만 하는 상황에 사용된다.</li>
+<li>고정된 메모리 영역을 얻기 때문에 메모리 낭비를 방지할 수 있다. -&gt; 두번째부터 객체 로딩 시간이 줄어든다(개이득!)</li>
+</ul>
+<h3 id="단점도-있겠지"><a href="#단점도-있겠지" class="headerlink" title="단점도 있겠지"></a>단점도 있겠지</h3><ul>
+<li>결합도가 높아진다</li>
+<li>객체지향 설계 원칙에 따라 개발하는 것을 저해하는 요인이 된다</li>
+<li>생성자를 private으로 구현하기 때문에 상속할 수 없다</li>
+<li>멀티쓰레드환경에서 동기화처리를 해줘야함(할일++)</li>
+<li>잘쓰면 좋겠지만 그게 어렵다</li>
+</ul>
+<hr>
+<h5 id="참고사이트"><a href="#참고사이트" class="headerlink" title="참고사이트"></a>참고사이트</h5><p><a href="https://blog.seotory.com/post/2016/03/java-singleton-pattern" target="_blank" rel="noopener">https://blog.seotory.com/post/2016/03/java-singleton-pattern</a><br><a href="http://woowabros.github.io/tools/2017/07/10/java-enum-uses.html" target="_blank" rel="noopener">http://woowabros.github.io/tools/2017/07/10/java-enum-uses.html</a><br><a href="https://medium.com/@joongwon/multi-thread-환경에서의-올바른-singleton-578d9511fd42" target="_blank" rel="noopener">https://medium.com/@joongwon/multi-thread-환경에서의-올바른-singleton-578d9511fd42</a><br><a href="http://limkydev.tistory.com/67" target="_blank" rel="noopener">http://limkydev.tistory.com/67</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cdy0510" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:cdypro0510@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 Dayoung Cho<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
