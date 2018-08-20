@@ -10,6 +10,11 @@
 
     <!--Description-->
     
+        <meta name="description" content="수포자가 이해한 머신러닝 시리즈는 구글의 머신러닝 문서 순서를 따릅니다.머신러닝 단기집중과정
+
+라벨(Label)예측하는 항목, 단순 선형 회귀의 y 변수ex) 이 메일은 스팸일까?아닐까?
+특성(Feature)입력 변수, 단순 선형 회귀의 x 변수특성은 여러개가 될 수 ">
+    
 
     <!--Author-->
     
@@ -18,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="어제보다 더 나은 내가 되기"/>
+        <meta property="og:title" content="[ML]수포자가 이해한 머신러닝 - 2.기본용어정리"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +34,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>MachineLearning - 어제보다 더 나은 내가 되기</title>
+    <title>[ML]수포자가 이해한 머신러닝 - 2.기본용어정리 - 어제보다 더 나은 내가 되기</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -153,62 +158,110 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>MachineLearning</h1>
+                <div class="post-heading">
+                    <h1>[ML]수포자가 이해한 머신러닝 - 2.기본용어정리</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-08-20
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/MachineLearning/">#MachineLearning</a> <a href="/tags/study/">#study</a> <a href="/tags/GoogleStudyJams/">#GoogleStudyJams</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/MachineLearning/">MachineLearning</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2018/08/20/ml-basic-1/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 2.기본용어정리
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-08-20
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2018/08/16/ml_start/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 1.시작
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-08-16
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>수포자가 이해한 머신러닝 시리즈는 구글의 머신러닝 문서 순서를 따릅니다.<br><a href="https://developers.google.com/machine-learning/crash-course/" title="머신러닝 단기집중과정" target="_blank" rel="noopener">머신러닝 단기집중과정</a></p>
+<p><br></p>
+<h3 id="라벨-Label"><a href="#라벨-Label" class="headerlink" title="라벨(Label)"></a>라벨(Label)</h3><p>예측하는 항목, 단순 선형 회귀의 <code>y</code> 변수<br>ex) 이 메일은 스팸일까?아닐까?<br><br></p>
+<h3 id="특성-Feature"><a href="#특성-Feature" class="headerlink" title="특성(Feature)"></a>특성(Feature)</h3><p>입력 변수, 단순 선형 회귀의 <code>x</code> 변수<br>특성은 여러개가 될 수 있습니다. </p>
+<center> <img src="/images/feature.PNG" alt="여러개 특성"> </center>
+
+<p>스팸인지 아닌지를 판별할 때 메일에는 다음과 같은 특성을 가질 수 있습니다.</p>
+<ul>
+<li>보낸 사람</li>
+<li>메일이 전송된 시간</li>
+<li>특정 단어가 포함된 메일</li>
 </ul>
+<p><br></p>
+<h3 id="예-Example"><a href="#예-Example" class="headerlink" title="예(Example)"></a>예(Example)</h3><p>예는 두개로 분류될 수 있습니다.</p>
+<ul>
+<li>라벨이 있는 예(labeled examples) : {features, label} : (x, y) -&gt; 학습시킬 때 사용</li>
+<li>라벨이 없는 예(unlabeled examples) : {features, ?} : (x, ?) -&gt; 라벨 예측이 필요함</li>
+</ul>
+<p><br></p>
+<h3 id="모델-Model"><a href="#모델-Model" class="headerlink" title="모델(Model)"></a>모델(Model)</h3><p>특성과 라벨의 관계를 정의합니다. 예를들어 스팸 감지 모델에서 특정 특성을 ‘스팸’과 긴밀하게 연결할 수 있습니다.</p>
+<ul>
+<li>모델 수명의 두단계<ul>
+<li>학습(Training): 모델을 만들거나 배우는 것</li>
+<li>추론(Inference): 학습된 모델을 라벨이 없는 예에 적용하는 것</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="회귀와-분류-Regression-vs-classification"><a href="#회귀와-분류-Regression-vs-classification" class="headerlink" title="회귀와 분류(Regression vs. classification)"></a>회귀와 분류(Regression vs. classification)</h3><p></p><p></p>
+<ul>
+<li>회귀(Regression): 연속적인 값 예측    ex) 내가 산 땅 값은 10년 뒤 얼마가 될까? </li>
+<li>분류(Classification): 불연속적인 값 예측   ex) 이 메일은 스팸일까?아닐까?<br><p></p></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
