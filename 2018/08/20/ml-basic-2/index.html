@@ -214,7 +214,7 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>저번 용어정리에서 <strong>회귀</strong>는 <em>연속적인 값을 예측하는 것</em>이라고 했다.<br>넓게 봤을 때 <strong>회귀</strong>는 기존 데이터를 가지고 새로운 값을 예측하는 것이고,<br>회귀분석의 종류는 여러가지가 있다. (이 문서에서 다루지는 않겠다)<br>오늘은 그 중 <strong>선형 회귀분석</strong>에 대해 알아보려고 한다.</p>
-<center> <img src="/images/linear_regression.PNG" alt="선형회귀 그래프"> </center>
+<center> <img src="/images/linear_regression.png" alt="선형회귀 그래프"> </center>
 
 <p>위 그래프에서 <code>빨간 점</code>은 <strong>데이터 값</strong>이고, <code>파란색 선</code>은 얻고자 하는 출력, 곧 <strong>선형회귀의 결과</strong>이다.<br>선형회귀는 아래와 같은 식으로 나타낼 수 있다.</p>
 <center> <img src="/images/linear_regression_formula.PNG" alt="y&#39;=b+w1x1"> </center>
@@ -225,7 +225,7 @@
 <center> <img src="/images/linear_regression_formula2.PNG" alt="y&#39;=b+w1x1+w2x2+w3x3"> </center>
 
 
-<h3 id="손실"><a href="#손실" class="headerlink" title="손실"></a>손실</h3><center> <img src="/images/linear_regression.PNG" alt="선형회귀 그래프"> </center>
+<h3 id="손실"><a href="#손실" class="headerlink" title="손실"></a>손실</h3><center> <img src="/images/linear_regression.png" alt="선형회귀 그래프"> </center>
 
 <p>아까 그래프를 다시 보면 파란선과 가까운 빨간점도 있고, 많이 떨어져있는 점들도 볼 수 있다.<br>점과 선 사이의 거리만큼 우리는 <strong>손실이 발생했다</strong>라고 말한다.<br>우리의 목표는 손실이 적은 모델을 만드는 것이다. <strong>즉, 손실은 0에 가까울 수록 좋다.</strong></p>
 <p>우리는 <em>모델이 얼마나 정확하게 예측했는가</em>를 알기 위해 <strong>손실함수</strong>를 쓸 수 있다.<br>손실함수도 역시 여러 종류가 있지만 이 문서에서는 <strong>제곱손실(Squared loss)</strong>만 다룬다.</p>
