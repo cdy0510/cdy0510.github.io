@@ -47,7 +47,6 @@ ex) 이 메일은 스팸일까?아닐까?
 <br/>
 
 ### 회귀와 분류(Regression vs. classification)
-<p>
+기존의 데이터를 가지고 새로운 데이터를 예측합니다.
 - 회귀(Regression): 연속적인 값 예측    ex) 내가 산 땅 값은 10년 뒤 얼마가 될까? 
 - 분류(Classification): 불연속적인 값 예측   ex) 이 메일은 스팸일까?아닐까?
-</P>
