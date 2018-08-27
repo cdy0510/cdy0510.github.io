@@ -13,7 +13,7 @@ tags:
 회귀분석의 종류는 여러가지가 있다. (이 문서에서 다루지는 않겠다)
 오늘은 그 중 **선형 회귀분석**에 대해 알아보려고 한다.
 
-<center> ![선형회귀 그래프](/images/linear_regression.PNG) </center>
+<center> ![선형회귀 그래프](/images/linear_regression.png) </center>
 
 위 그래프에서 `빨간 점`은 **데이터 값**이고, `파란색 선`은 얻고자 하는 출력, 곧 **선형회귀의 결과**이다.
 선형회귀는 아래와 같은 식으로 나타낼 수 있다.
@@ -34,7 +34,7 @@ w1x1은 더 복잡한 모델에서 여러개가 붙어 쓰일 수 있다.
 
 
 ### 손실
-<center> ![선형회귀 그래프](/images/linear_regression.PNG) </center>
+<center> ![선형회귀 그래프](/images/linear_regression.png) </center>
 
 아까 그래프를 다시 보면 파란선과 가까운 빨간점도 있고, 많이 떨어져있는 점들도 볼 수 있다.
 점과 선 사이의 거리만큼 우리는 **손실이 발생했다**라고 말한다.
