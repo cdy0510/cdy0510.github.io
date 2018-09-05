@@ -50,6 +50,7 @@ h4,
 h5,
 h6 {
   font-weight: 800;
+  margin-top: 50px;
 }
 li {
   line-height: 2;

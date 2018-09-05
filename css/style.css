@@ -50,6 +50,7 @@ h4,
 h5,
 h6 {
   font-weight: 800;
+  margin-top: 50px;
 }
 li {
   line-height: 2;
@@ -468,7 +469,7 @@ article .container .row .video-container embed {
 }
 article .container .row blockquote {
   font-style: italic;
-  font-family: "Georgia", serif;
+  font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
   font-size: 1.2em;
   padding: 0 30px 15px;
   text-align: center;
