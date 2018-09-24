@@ -21,7 +21,7 @@ ex) 이 메일은 스팸일까?아닐까?
 ### 특성(Feature)
 입력 변수, 단순 선형 회귀의 `x` 변수
 특성은 여러개가 될 수 있습니다. 
-<center> ![여러개 특성](/images/feature.PNG) </center>
+{% img center-img /images/feature.PNG 여러개 특성 %}
 
 스팸인지 아닌지를 판별할 때 메일에는 다음과 같은 특성을 가질 수 있습니다.
 - 보낸 사람

@@ -13,14 +13,15 @@ tags:
 회귀분석의 종류는 여러가지가 있다. (이 문서에서 다루지는 않겠다)
 오늘은 그 중 **선형 회귀분석**에 대해 알아보려고 한다.
 
-<center> ![선형회귀 그래프](/images/linear_regression.png) </center>
+{% img center-img /images/linear_regression.png 선형회귀 그래프 %}
 
 위 그래프에서 `빨간 점`은 **데이터 값**이고, `파란색 선`은 얻고자 하는 출력, 곧 **선형회귀의 결과**이다.
 선형회귀는 아래와 같은 식으로 나타낼 수 있다.
 
-<center> ![y'=b+w1x1](/images/linear_regression_formula.PNG) </center>
 
-`y'`는 우리가 얻고자 하는 출력이다. 미분을 했다는 표시로 `'`를 붙인다.
+{% img center-img /images/linear_regression_formula.PNG y'=b+w1x1 %}
+
+`y'`는 우리가 얻고자 하는 출력이다. 미분을 했다는 표시로 `'(프라임)`을 붙인다.
 `b`는 편향(y축과 만나는 점)이다. 다른 머신러닝 문서에서 ![w0](/images/w0.PNG)으로 표현하기도 한다.
 `w1`은 x1(특성)에 대한 가중치이다.
 `x1`은 특성(알려진 입력)이다.
@@ -30,11 +31,10 @@ tags:
 
 w1x1은 더 복잡한 모델에서 여러개가 붙어 쓰일 수 있다.
 
-<center> ![y'=b+w1x1+w2x2+w3x3](/images/linear_regression_formula2.PNG) </center>
-
+{% img center-img /images/linear_regression_formula2.PNG y'=b+w1x1+w2x2+w3x3 %}
 
 ### 손실
-<center> ![선형회귀 그래프](/images/linear_regression.png) </center>
+{% img center-img /images/linear_regression.png 선형회귀 그래프 %}
 
 아까 그래프를 다시 보면 파란선과 가까운 빨간점도 있고, 많이 떨어져있는 점들도 볼 수 있다.
 점과 선 사이의 거리만큼 우리는 **손실이 발생했다**라고 말한다.
@@ -45,6 +45,8 @@ w1x1은 더 복잡한 모델에서 여러개가 붙어 쓰일 수 있다.
 
 #### 제곱손실
 
+제곱을 하는 이유는 음수(-)의 값이 나왔을 경우에도 양수로 변환할 수 있어 손실률 비교가 쉽고, 손실 값이 발생했을 경우 극대화 시켜 손실된 부분의 패널티를 크게 줌으로써 오차가 더 적은 모델을 만들 수 있기 때문이다.
+
 라벨과 예측 사이의 차이의 제곱
 =(observation - prediction(x))^2
 = (y - y')^2
@@ -54,7 +56,7 @@ w1x1은 더 복잡한 모델에서 여러개가 붙어 쓰일 수 있다.
 한 예시에 평균적으로 오차가 얼마나 발생했는지 알기 위해 쓴다.
 각 데이터 별 오차를 합산한 뒤 데이터 갯수로 나눈다.
 
-<center> ![y'=b+w1x1+w2x2+w3x3](/images/mse.PNG) </center>
+{% img center-img /images/mse.PNG Mean Square Error %}
 
 - (x,y): 예(example)
     - x: 모델이 예측하는데 사용하는 특성 집합
