@@ -3,6 +3,10 @@ article .container .row img {
   height: auto;
   display: inline-block;
 }
+article .container .row .center-img {
+  margin: 0 auto;
+  display: block;
+}
 article .container .row .video-container {
   position: relative;
   padding-bottom: 56.25%;

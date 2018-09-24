@@ -11,9 +11,8 @@
     <!--Description-->
     
         <meta name="description" content="저번 용어정리에서 회귀는 연속적인 값을 예측하는 것이라고 했다.넓게 봤을 때 회귀는 기존 데이터를 가지고 새로운 값을 예측하는 것이고,회귀분석의 종류는 여러가지가 있다. (이 문서에서 다루지는 않겠다)오늘은 그 중 선형 회귀분석에 대해 알아보려고 한다.
-  
 
-위 그래">
+위 그래프에서">
     
 
     <!--Author-->
@@ -214,25 +213,20 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>저번 용어정리에서 <strong>회귀</strong>는 <em>연속적인 값을 예측하는 것</em>이라고 했다.<br>넓게 봤을 때 <strong>회귀</strong>는 기존 데이터를 가지고 새로운 값을 예측하는 것이고,<br>회귀분석의 종류는 여러가지가 있다. (이 문서에서 다루지는 않겠다)<br>오늘은 그 중 <strong>선형 회귀분석</strong>에 대해 알아보려고 한다.</p>
-<center> <img src="/images/linear_regression.png" alt="선형회귀 그래프"> </center>
-
+<img src="/images/linear_regression.png" class="center-img" title="선형회귀 그래프">
 <p>위 그래프에서 <code>빨간 점</code>은 <strong>데이터 값</strong>이고, <code>파란색 선</code>은 얻고자 하는 출력, 곧 <strong>선형회귀의 결과</strong>이다.<br>선형회귀는 아래와 같은 식으로 나타낼 수 있다.</p>
-<center> <img src="/images/linear_regression_formula.PNG" alt="y&#39;=b+w1x1"> </center>
-
-<p><code>y&#39;</code>는 우리가 얻고자 하는 출력이다. 미분을 했다는 표시로 <code>&#39;</code>를 붙인다.<br><code>b</code>는 편향(y축과 만나는 점)이다. 다른 머신러닝 문서에서 <img src="/images/w0.PNG" alt="w0">으로 표현하기도 한다.<br><code>w1</code>은 x1(특성)에 대한 가중치이다.<br><code>x1</code>은 특성(알려진 입력)이다.</p>
+<img src="/images/linear_regression_formula.PNG" class="center-img" title="y" alt="=b+w1x1">
+<p><code>y&#39;</code>는 우리가 얻고자 하는 출력이다. 미분을 했다는 표시로 <code>&#39;(프라임)</code>을 붙인다.<br><code>b</code>는 편향(y축과 만나는 점)이다. 다른 머신러닝 문서에서 <img src="/images/w0.PNG" alt="w0">으로 표현하기도 한다.<br><code>w1</code>은 x1(특성)에 대한 가중치이다.<br><code>x1</code>은 특성(알려진 입력)이다.</p>
 <p>이 공식에서 새로운 결과(y’)를 예측(추론)하고 싶다면 x1에 새로운 값을 넣어보면 된다.<br>또한, 나중에 다루게 되겠지만 우리는 더 나은 결과를 얻기 위해 가중치를 조절하는 일도 하게 될 것이다.</p>
 <p>w1x1은 더 복잡한 모델에서 여러개가 붙어 쓰일 수 있다.</p>
-<center> <img src="/images/linear_regression_formula2.PNG" alt="y&#39;=b+w1x1+w2x2+w3x3"> </center>
-
-
-<h3 id="손실"><a href="#손실" class="headerlink" title="손실"></a>손실</h3><center> <img src="/images/linear_regression.png" alt="선형회귀 그래프"> </center>
-
+<img src="/images/linear_regression_formula2.PNG" class="center-img" title="y" alt="=b+w1x1+w2x2+w3x3">
+<h3 id="손실"><a href="#손실" class="headerlink" title="손실"></a>손실</h3><img src="/images/linear_regression.png" class="center-img" title="선형회귀 그래프">
 <p>아까 그래프를 다시 보면 파란선과 가까운 빨간점도 있고, 많이 떨어져있는 점들도 볼 수 있다.<br>점과 선 사이의 거리만큼 우리는 <strong>손실이 발생했다</strong>라고 말한다.<br>우리의 목표는 손실이 적은 모델을 만드는 것이다. <strong>즉, 손실은 0에 가까울 수록 좋다.</strong></p>
 <p>우리는 <em>모델이 얼마나 정확하게 예측했는가</em>를 알기 위해 <strong>손실함수</strong>를 쓸 수 있다.<br>손실함수도 역시 여러 종류가 있지만 이 문서에서는 <strong>제곱손실(Squared loss)</strong>만 다룬다.</p>
-<h4 id="제곱손실"><a href="#제곱손실" class="headerlink" title="제곱손실"></a>제곱손실</h4><p>라벨과 예측 사이의 차이의 제곱<br>=(observation - prediction(x))^2<br>= (y - y’)^2</p>
+<h4 id="제곱손실"><a href="#제곱손실" class="headerlink" title="제곱손실"></a>제곱손실</h4><p>제곱을 하는 이유는 음수(-)의 값이 나왔을 경우에도 양수로 변환할 수 있어 손실률 비교가 쉽고, 손실 값이 발생했을 경우 극대화 시켜 손실된 부분의 패널티를 크게 줌으로써 오차가 더 적은 모델을 만들 수 있기 때문이다.</p>
+<p>라벨과 예측 사이의 차이의 제곱<br>=(observation - prediction(x))^2<br>= (y - y’)^2</p>
 <h4 id="평균제곱오차-Mean-Square-Error"><a href="#평균제곱오차-Mean-Square-Error" class="headerlink" title="평균제곱오차(Mean Square Error)"></a>평균제곱오차(Mean Square Error)</h4><p>한 예시에 평균적으로 오차가 얼마나 발생했는지 알기 위해 쓴다.<br>각 데이터 별 오차를 합산한 뒤 데이터 갯수로 나눈다.</p>
-<center> <img src="/images/mse.PNG" alt="y&#39;=b+w1x1+w2x2+w3x3"> </center>
-
+<img src="/images/mse.PNG" class="center-img" title="Mean Square Error">
 <ul>
 <li>(x,y): 예(example)<ul>
 <li>x: 모델이 예측하는데 사용하는 특성 집합</li>

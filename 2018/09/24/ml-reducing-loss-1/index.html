@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="머신러닝의 목표는 손실을 줄여 정확한 값을 도출하는 것이다.이번 포스팅에서는 손실을 줄이기 위한 방법을 알아보려고 한다.
+반복방식(An Iterative Approach)쉽게 우리는 ‘업다운’게임을 생각해 볼 수 있다. 임의의 숫자를 두고 한명씩 돌아가며 그 숫자를 맞">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="All tags"/>
+        <meta property="og:title" content="[ML]수포자가 이해한 머신러닝 - 4.손실 줄이기(Reducing Loss)"/>
     
 
     <!--Open Graph Description-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>All tags - 어제보다 더 나은 내가 되기</title>
+    <title>[ML]수포자가 이해한 머신러닝 - 4.손실 줄이기(Reducing Loss) - 어제보다 더 나은 내가 되기</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -153,155 +156,88 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>All tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/MachineLearning/">
-        <h1 class="post-title archive">
-            MachineLearning
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/study/">
-        <h1 class="post-title archive">
-            study
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/GoogleStudyJams/">
-        <h1 class="post-title archive">
-            GoogleStudyJams
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/hackathon/">
-        <h1 class="post-title archive">
-            hackathon
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/planethackathon/">
-        <h1 class="post-title archive">
-            planethackathon
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/hexo/">
-        <h1 class="post-title archive">
-            hexo
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/잡담/">
-        <h1 class="post-title archive">
-            잡담
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/java/">
-        <h1 class="post-title archive">
-            java
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/immutable/">
-        <h1 class="post-title archive">
-            immutable
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/WTM/">
-        <h1 class="post-title archive">
-            WTM
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/WTM2018/">
-        <h1 class="post-title archive">
-            WTM2018
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/WomenTechmakers/">
-        <h1 class="post-title archive">
-            WomenTechmakers
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/여성/">
-        <h1 class="post-title archive">
-            여성
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/루트임팩트/">
-        <h1 class="post-title archive">
-            루트임팩트
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/사라진여성들을찾아서/">
-        <h1 class="post-title archive">
-            사라진여성들을찾아서
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>[ML]수포자가 이해한 머신러닝 - 4.손실 줄이기(Reducing Loss)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-09-24
+                        
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
 
 
+<a href="/tags/MachineLearning/">#MachineLearning</a> <a href="/tags/study/">#study</a> <a href="/tags/GoogleStudyJams/">#GoogleStudyJams</a>
 
 
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
 
+<a href="/categories/MachineLearning/">MachineLearning</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>머신러닝의 목표는 <em>손실을 줄여 정확한 값을 도출하는 것</em>이다.<br>이번 포스팅에서는 손실을 줄이기 위한 방법을 알아보려고 한다.</p>
+<h3 id="반복방식-An-Iterative-Approach"><a href="#반복방식-An-Iterative-Approach" class="headerlink" title="반복방식(An Iterative Approach)"></a>반복방식(An Iterative Approach)</h3><p>쉽게 우리는 ‘업다운’게임을 생각해 볼 수 있다. 임의의 숫자를 두고 한명씩 돌아가며 그 숫자를 맞추게 된다.<br>제시된 숫자보다 큰 숫자를 말할 경우 <strong>다운</strong> 제시된 숫자보다 작은 숫자를 말할 경우 <strong>업</strong>이라고 알려주는 과정을 반복하다보면 정답을 알아낼 수 있다.</p>
+<p>반복방식 또한 이 개념과 크게 다르지 않다.</p>
+<p>하나 이상의 특성을 입력하여 예측을 할 수 있는 모델이 있다고 했을 때, 그 특성값을 계속 변경해가며 손실률을 낮춘다. 어차피 특성값을 변경해가며 손실이 가장 적은 값을 찾아내기 때문에 초기값은 크게 상관없다고 한다.</p>
+<h3 id="경사하강법-Gradient-Descent"><a href="#경사하강법-Gradient-Descent" class="headerlink" title="경사하강법(Gradient Descent)"></a>경사하강법(Gradient Descent)</h3><p>위에서 설명한 반복 방식을 이용한 경사하강법에 대해 알아보자.<br><img src="/images/graph1.png" class="center-img" title="graph1"><br>단순한 손실 그래프를 위와 같이 그려보았다. 이 때, 우리가 최종적으로 도출하고 싶은 결과는 손실률이 가장 낮은 값인 <code>빨간 점의 값</code>이다.<br>이 빨간 점은 기울기가 0인 최소값이며 이 부분에서 손실함수는 수렴한다고 한다.<br><strong>경사하강법</strong>을 사용하여 이 값을 찾는 방법을 알아보자.</p>
+<img src="/images/graph2.png" class="center-img" title="graph2">
+<p>먼저 임의의 시작점을 지정하여 기울기를 구한다. 기울기는 벡터로 크기와 방향을 가진다.(방향을 가지는게 여기서 뽀인트)<br>구해진 기울기 값을 보고 우리는 값이 <strong>더 정확한지</strong> 혹은 <strong>더 부정확한지</strong>를 알 수 있다.(양의 기울기인지 음의 기울기인지에서 알 수 있는 듯!)<br>파란점의 기울기는 음의 기울기 이므로 시작점을 오른쪽(양의 방향)으로 이동 시킨다.<br><img src="/images/gradient_memo.png" title="기울기 설명"><br>이동시킬 때 얼마나 이동시킬지는 학습률에따라 달라지는데 학습률에 관해서는 다음 포스팅에서 다루려고 한다.</p>
+<img src="/images/graph3.png" class="center-img" title="graph3">
+<p>옮겨진 점의 기울기를 다시한번 구한다. 분명 이전보다는 기울기가 줄어들었지만 왠지 손실률을 더 줄일 수 있을 것 같다. 이런식으로 점을 계속 옮기다보면 빨간 점에 도달할 수 있을 것이다. 반복적으로 해당 점의 기울기를 구하여 0에 가깝게 만드는 방법을 <strong>경사하강법</strong>이라고한다.</p>
+<h4 id="경사하강법-사용시-유의할-점-혹은-단점"><a href="#경사하강법-사용시-유의할-점-혹은-단점" class="headerlink" title="경사하강법 사용시 유의할 점(혹은 단점)"></a>경사하강법 사용시 유의할 점(혹은 단점)</h4><img src="/images/graph4.png" class="center-img" title="graph4">
+<p>더 복잡한 그래프에서 기울기만으로만 최소값을 구하다보면 전역 최소값(global minima)에 다다르지 못하고 지역 최소값(local minima)에만 머무를 수도 있다. 우리가 원하는 값은 전역 최소값이기 때문에 오류 발생 가능성이 있다는 뜻이다. 이를 해결하기 위한 방법은 이 포스팅에서 다루지 않겠지만, 이러한 요소들을 주의하며 손실 줄이기 방법을 공부해야한다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr />
