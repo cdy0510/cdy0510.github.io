@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="저번 게시글에서 학습률에 따라 점을 이동한다고 언급했었다.
+학습률이 0.01으로 설정되었고 현재 시작점의 기울기가 2.5라고 하면 경사 하강법에서는 둘을 곱한 값인 0.025만큼 다음 지점으로 이동한다. 학습률에 따라 이동하는 크기가 달라지므로 학습률이 작으면 조금씩,">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="어제보다 더 나은 내가 되기"/>
+        <meta property="og:title" content="[ML]수포자가 이해한 머신러닝 - 5.학습률(Learning Rate)"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>MachineLearning - 어제보다 더 나은 내가 되기</title>
+    <title>[ML]수포자가 이해한 머신러닝 - 5.학습률(Learning Rate) - 어제보다 더 나은 내가 되기</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -153,101 +156,91 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>MachineLearning</h1>
+                <div class="post-heading">
+                    <h1>[ML]수포자가 이해한 머신러닝 - 5.학습률(Learning Rate)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-09-25
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/MachineLearning/">#MachineLearning</a> <a href="/tags/study/">#study</a> <a href="/tags/GoogleStudyJams/">#GoogleStudyJams</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/MachineLearning/">MachineLearning</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2018/09/25/ml-learning-rate/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 5.학습률(Learning Rate)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-09-25
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2018/09/24/ml-reducing-loss-1/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 4.손실 줄이기(Reducing Loss)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-09-24
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <img src="/images/graph3.png" class="center-img" title="graph3">
+<p><a href="http://cdy0510.github.io/2018/09/24/ml-reducing-loss-1/" title="4.손실 줄이기(Reducing Loss)">저번 게시글</a>에서 학습률에 따라 점을 이동한다고 언급했었다.</p>
+<p>학습률이 0.01으로 설정되었고 현재 시작점의 기울기가 2.5라고 하면 경사 하강법에서는 둘을 곱한 값인 0.025만큼 다음 지점으로 이동한다. 학습률에 따라 이동하는 크기가 달라지므로 학습률이 작으면 조금씩, 학습률이 크면 큰 보폭으로 점이 이동하게 된다. 한마디로 학습률에 따라 최종 결과값을 얻는 속도에도 영향을 끼친다.</p>
+<ol>
+<li><p>학습률이 클 경우<br> 큰 보폭으로 움직이며 속도가 빠르다.<br> 학습률이 지나치게 클 경우 최종 결과값을 지나칠 수도 있다.</p>
+<img src="/images/learning_rate_graph1.png" class="center-img" title="학습률이 클 경우">
+</li>
+<li><p>학습률이 작을 경우<br> 작은 보폭으로 움직이며 속도가 느리다.<br> 최종 결과 값에 도달하는 속도가 너무 느려 최종 결과값에 도달하지 못할 수도 있다.</p>
+<img src="/images/learning_rate_graph2.png" class="center-img" title="학습률이 작을 경우">
+</li>
+</ol>
+<p>최적의 학습률을 설정한다면 문제가 되지 않겠지만, 최적의 학습률은 어떻게 구할까나..?</p>
+<h3 id="골디락스-학습률-Goldilocks-learning-rate"><a href="#골디락스-학습률-Goldilocks-learning-rate" class="headerlink" title="골디락스 학습률(Goldilocks learning rate)"></a>골디락스 학습률(Goldilocks learning rate)</h3><p>이 둘의 사이를 적당히 조절 할 수 있는 방법론 중 하나는 <strong>골디락스 학습률</strong>을 적용하는 것이다.<br>만약 같은 학습률로 이동할때 기울기가 크면 기울기가 작은 것보다 더 큰 보폭으로 움직일 것이다.<br><img src="/images/learning_rate_graph3.png" class="center-img" title="학습률에 따른 보폭"><br>그래프에서 볼 수 있듯 우측으로 동일하게 움직였지만(빨간 화살표) 실제 움직인 거리는 기울기가 큰 부분이 더 긴 것을 알 수 있다. 따라서 ‘기울기가 작은 부분에서 동일하게 움직이지 않고 좀 더 크게 이동하면 어떨까?’라는 생각에서 나온 것이 <strong>골디락스 학습률</strong>이다.<br><img src="/images/learning_rate_graph4.png" class="center-img" title="골디락스 학습률을 적용한 그래프"><br>실제 이동한 거리(주황색 선 부분)를 비슷하게 맞춰보았다. 기울기가 작은 부분에서 학습률을 높여 더 큰 보폭으로 이동할 수 있게 하여 속도를 보완할 수 있다.</p>
+<h4 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h4><p>실무에서는 모델 학습의 성공을 위해 최적 또는 최적에 근접한 학습률을 반드시 구할 필요는 없습니다. 경사하강법이 효과적으로 수렴할 정도로 크지만 발산할 정도로 크지는 않은 적당한 학습률을 구하는 것이 목표입니다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2018/08/20/ml-basic-2/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 3.선형회귀(Linear Regression)와 손실(Loss)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-08-20
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2018/08/20/ml-basic-1/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 2.기본용어정리
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-08-20
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/08/16/ml_start/">
-        <h1 class="post-title archive">
-            [ML]수포자가 이해한 머신러닝 - 1.시작
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-08-16
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
